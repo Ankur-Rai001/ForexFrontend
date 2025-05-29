@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "www.forexedge.in",
+      "destination": "https://forexedge.in",
+      "permanent": true
+    }
+  ]
+}
