@@ -78,7 +78,9 @@ const Dashboard = () => {
           >
             <option value="">Select Interval</option>
             <option value="1day">1 Day</option>
-            <option value="1week">1 Week</option>
+            <option value="4hour">4 Hour</option>
+            <option value="1hour">1 Hour</option>
+             <option value="15min">15 Min</option>
           </select>
         </div>
 
