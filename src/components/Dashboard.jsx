@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import { toast } from "react-toastify";
-import { graphApi } from "../api/graphApi";
+import { getJWTToken, graphApi } from "../api/graphApi";
+import Disclaimer from "./Disclaimer";
 
 const Dashboard = () => {
   const [currency, setCurrency] = useState("");
@@ -15,9 +15,24 @@ const Dashboard = () => {
       toast.error("Please select both currency and interval");
       return;
     }
+
     setLoading(true);
-    const url = await graphApi(currency, interval);
-    setImageUrl(url);
+    try {
+      const token = await getJWTToken();
+      const url = await graphApi(currency, interval, token);
+
+      if (!url) {
+        setImageUrl(null);
+        toast.info("Graph not available yet.");
+      } else {
+        setImageUrl(url);
+      }
+    } catch (error) {
+      setImageUrl(null);
+      toast.error(
+        "Graph is not available at the moment. Please try again later."
+      );
+    }
     setLoading(false);
   };
 
@@ -80,7 +95,7 @@ const Dashboard = () => {
             <option value="1day">1 Day</option>
             <option value="4hour">4 Hour</option>
             <option value="1hour">1 Hour</option>
-             <option value="15min">15 Min</option>
+            <option value="15min">15 Min</option>
           </select>
         </div>
 
@@ -89,7 +104,7 @@ const Dashboard = () => {
             onClick={handleFetch}
             disabled={loading}
             className={`w-full bg-gradient-to-r from-blue-700 to-purple-700 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 rounded-lg transition-colors duration-300 cursor-pointer
-    ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+              ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
           >
             View Forecast
           </button>
@@ -110,10 +125,43 @@ const Dashboard = () => {
               className="w-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]"
             />
           </div>
-        ) : (
+        ) : !currency || !interval ? (
           <p className="text-slate-400 text-center">
             No forecast generated. Please select options above and click "View
             Forecast".
+          </p>
+        ) : (
+          <p className="text-center text-lg text-slate-400 animate-fadeIn duration-1000">
+            <span className="inline-flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 text-purple-400 animate-bounce"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.98 8.223a9 9 0 0116.04 0M12 3v1m6.364 1.636l-.707.707M21 12h-1m-1.636 6.364l-.707-.707M12 21v-1m-6.364-1.636l.707-.707M3 12h1m1.636-6.364l.707.707"
+                />
+              </svg>
+              <span>
+                <span className="text-white font-bold tracking-wide">
+                  Exciting Updates!
+                </span>{" "}
+                Our AI-powered forecast is
+                <span className="text-purple-400 font-semibold ml-1">
+                  loading in the pipeline
+                </span>
+                .
+                <br />
+                <span className="text-blue-300">
+                  Get ready to unlock precision trading soon 🚀
+                </span>
+              </span>
+            </span>
           </p>
         )}
       </div>
@@ -151,6 +199,8 @@ const Dashboard = () => {
             distinguishing Forex Edge from other tools.
           </p>
         </div>
+
+        <Disclaimer />
       </div>
     </div>
   );
