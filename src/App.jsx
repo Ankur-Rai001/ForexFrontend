@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
 import TermsAndPolicy from "./components/TermsAndPolicy";
+import Disclaimer from "./components/Disclaimer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/terms-and-policy" element={<TermsAndPolicy />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
           </Routes>
         </div>
 

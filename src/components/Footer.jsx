@@ -7,6 +7,9 @@ const Footer = () => (
       <Link to="/terms-and-policy" className="text-blue-400 hover:underline">
         Terms & Privacy Policy
       </Link>
+      <Link to="/disclaimer" className="text-blue-400 hover:underline">
+        Disclaimer
+      </Link>
     </div>
   </footer>
 );

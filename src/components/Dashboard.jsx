@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { getJWTToken, graphApi } from "../api/graphApi";
 import Disclaimer from "./Disclaimer";
+import AdsenseAd from "./AdsenseAd";
 
 const Dashboard = () => {
   const [currency, setCurrency] = useState("");
@@ -35,6 +36,16 @@ const Dashboard = () => {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    try {
+      if (window.adsbygoogle && process.env.NODE_ENV === "production") {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
+    } catch (e) {
+      console.error("AdSense error", e);
+    }
+  }, []);
 
   return (
     <div className="px-4 sm:px-8 py-10 overflow-hidden text-white">
@@ -200,7 +211,8 @@ const Dashboard = () => {
           </p>
         </div>
 
-        <Disclaimer />
+        <AdsenseAd />
+        {/* <Disclaimer /> */}
       </div>
     </div>
   );
