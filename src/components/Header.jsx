@@ -10,6 +10,7 @@ const Header = () => {
     { name: "Home", path: "/" },
     { name: "Blogs", path: "/articles" },
     { name: "About", path: "/terms-and-policy" },
+    { name: "Insert", path: "/insert-articles" },
   ];
 
   const handleNavClick = (path) => navigate(path);
