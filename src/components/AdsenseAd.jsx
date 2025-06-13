@@ -50,7 +50,7 @@ const AdsenseAd = () => {
       <div
         ref={adRef}
         className={`w-full h-[100px] rounded-md overflow-hidden ${
-          isLoaded ? "" : "bg-slate-200 animate-pulse"
+          isLoaded ? "" : "animate-pulse"
         }`}
       >
         {/* Render ad only once */}
