@@ -29,7 +29,7 @@ function App() {
 
         {/* Restrict width only for page content */}
         <div className="w-full flex-grow">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/articles" element={<ArticleList />} />
