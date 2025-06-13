@@ -64,7 +64,7 @@ const ArticleList = () => {
                 </p>
 
                 <Link
-                  to={`/articles/${article.id}`}
+                  to={`/articles/${article.articleSeoUrl}`}
                   className="mt-auto text-sm font-medium text-purple-400 hover:underline"
                 >
                   Read More →

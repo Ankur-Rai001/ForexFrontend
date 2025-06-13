@@ -5,5 +5,12 @@
       "destination": "https://forexedge.in",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
 }
+

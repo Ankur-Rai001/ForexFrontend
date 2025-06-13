@@ -66,7 +66,7 @@ const ArticleDetail = () => {
         />
         <link
           rel="canonical"
-          href={`https://www.forexedge.in/articles/${article.id}`}
+          href={`https://www.forexedge.in/articles/${article.articleSeoUrl}`}
         />
       </Helmet>
 
