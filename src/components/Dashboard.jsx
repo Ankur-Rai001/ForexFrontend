@@ -181,38 +181,65 @@ const Dashboard = () => {
       <div className="max-w-4xl mx-auto space-y-8 text-slate-300">
         <div>
           <h2 className="text-2xl font-semibold text-white mb-2">
-            What is the Time Series Forecasting Model?
+            What Powers Our Forecasts?
           </h2>
           <p className="leading-relaxed">
-            The{" "}
-            <span className="text-white font-semibold">
-              time series forecasting model
-            </span>{" "}
-            powering Forex Edge is an advanced machine learning algorithm
-            designed for Forex trading. It blends statistical precision with
-            deep learning adaptability to identify complex patterns in market
-            data. Trained on vast historical datasets—such as price trends,
-            economic indicators, and market sentiment—it provides highly
-            accurate predictions of Forex market movements.
+            Our forecasts stem from a sophisticated deep learning model, trained
+            on vast historical data including price trends, economic indicators,
+            and market sentiment. By weaving in proven technical indicators such
+            as{" "}
+            <span className="text-white font-medium">
+              Exponential Moving Average (10-period), MACD (Moving Average
+              Convergence Divergence Line), MACD_Signal (MACD Signal Line),
+              BB_upper (Bollinger Bands Upper Band), RSI (Relative Strength
+              Index - 14-period), ATR (Average True Range - 14-period), OBV
+              (On-Balance Volume), VIX (CBOE Volatility Index), Interest_rate,
+              and regime_change
+            </span>
+            , we ensure razor-sharp accuracy for Forex trading. These tools,
+            paired with cutting-edge recurrent neural networks (RNNs) and
+            attention mechanisms, dissect time series data to reveal intricate
+            market patterns, forming a solid foundation for reliable
+            predictions.
           </p>
         </div>
 
         <div>
           <h2 className="text-2xl font-semibold text-white mb-2">
-            Technical Details of the Model
+            How It Works
           </h2>
           <p className="leading-relaxed">
-            The time series forecasting model is built on a deep learning
-            framework, incorporating recurrent neural networks and attention
-            mechanisms to analyze time series data. Its unique ability to
-            process multiple time scales—capturing both short-term shifts and
-            long-term trends—offers a comprehensive view of the market,
-            distinguishing Forex Edge from other tools.
+            The model excels by processing these indicators to generate
+            real-time forecasts tailored to market conditions. For example,{" "}
+            <span className="text-white font-medium">
+              EMA_10 and MACD_Line highlight emerging trends, RSI_14 flags
+              overbought or oversold states, and VIX measures volatility shifts
+            </span>
+            . Meanwhile, interest_rate and event_flag inputs enable it to adjust
+            to economic events and policy changes. Fine-tuned for the{" "}
+            <span className="text-white font-medium">GBPUSD</span> pair, it
+            captures this currency’s unique behavior, delivering timely and
+            actionable insights for traders.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold text-white mb-2">
+            Why It Stands Out
+          </h2>
+          <p className="leading-relaxed">
+            Our forecasts shine with indicator-powered precision, driven by a
+            targeted suite of metrics and deep learning prowess. The{" "}
+            <span className="text-white font-medium">GBPUSD</span> focus ensures
+            specialized clarity, while advanced algorithms anticipate market
+            movements effortlessly. Whether you’re a seasoned GBPUSD trader or
+            an institutional player, this model offers a trusted edge. It’s the
+            ultimate tool for navigating the Forex market with confidence and
+            success.
           </p>
         </div>
 
         <AdsenseAd />
-        {/* <Disclaimer /> */}
       </div>
     </div>
   );
