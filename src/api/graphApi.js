@@ -41,5 +41,29 @@ export const graphApi = async (currency, interval, token) => {
   }
 };
 
+export const login= async(username, password,token)=> {
+  try{
+   const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token, // JWT token from getJWTToken()
+      },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Unauthorized or token expired");
+    }
+
+    const result = await response.json();
+    return result || null;
+  } catch (error) {
+    console.error("API Error:", error);
+    throw error; 
+  }
+
+}
+
 
 

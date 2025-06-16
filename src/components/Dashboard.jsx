@@ -37,6 +37,12 @@ const Dashboard = () => {
     setLoading(false);
   };
 
+
+  const test = async()=>{
+    setLoading(true);
+    const token = await getJWTToken();
+  }
+
   useEffect(() => {
     try {
       if (window.adsbygoogle && process.env.NODE_ENV === "production") {
@@ -89,7 +95,7 @@ const Dashboard = () => {
           >
             <option value="">Select Currency</option>
             <option value="GBPUSD">GBP/USD</option>
-            <option value="EURUSD">EUR/USD</option>
+            {/* <option value="EURUSD">EUR/USD</option> */}
           </select>
         </div>
 
